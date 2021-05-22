@@ -1,0 +1,9 @@
+<google-map with="600" height="500" [zoom]="zoom">
+    <map-marker *ngFor="let job of jobsRes; let i = index"
+        [position]="job.position"
+        [title]="job.screen"
+        [label]="job.title">
+    </map-marker>
+</google-map>
+
+

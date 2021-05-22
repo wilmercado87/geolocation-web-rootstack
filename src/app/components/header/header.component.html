@@ -1,0 +1,12 @@
+<nav class="navbar is-light">
+
+    <div class="navbar-brand">
+        <div class="navbar-item header-item">
+            <label>Test Rootstack Geolocation Web</label>
+        </div>
+        <div class="navbar-item header-item-user" *ngIf="user">
+            <label>User: {{user.name}}</label>
+            <a (click)="logout()">Salida segura</a>
+        </div>
+    </div>
+  </nav>

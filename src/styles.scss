@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bulma/bulma.sass';
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|lato:400,800,900');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+html, body{
+    height: 100%;
+}
+
+html{
+    background-size: cover;
+    overflow: auto !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*Utilizado para el mensaje de error*/
+.mensajeError {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+    background-color: #d9e5f1;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+:host ::ng-deep {
+    .p-toast-message-custom {
+        background-color: #E1CFE7;
+        border: solid #8A427A;
+        border-width: 0 0 0 6px;
+        color: #2c1e30;
+        .p-toast-icon-close {
+            color: #2c1e30;
+        }
+    }
+}
