@@ -1,29 +1,57 @@
+import { MessageService } from 'primeng/api';
 import { User } from './../../models/user';
 import { AuthService } from './../../services/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CONSTANT } from '../constants/constant';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   @Input()
   user!: User;
 
   constructor(
     private authService: AuthService,
-    private router: Router) {}
+    private messageService: MessageService,
+    private datePipe: DatePipe,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  profile() {
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Info',
+      detail: CONSTANT.MSG_AUTHORIZED_USER + '\n' + this.fillInfoUser(),
+    });
   }
 
-  logout(){
+  logout() {
     console.log('logout');
     this.authService.logout();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl(CONSTANT.LOGIN);
   }
 
+  fillInfoUser(): string {
+    return (
+      'name: ' +
+      this.user.name +
+      '\n' +
+      'email: ' +
+      this.user.email +
+      '\n' +
+      'created: ' +
+      this.datePipe.transform(this.user.created_at, CONSTANT.FORMAT_DATE) +
+      '\n' +
+      'updated: ' +
+      this.datePipe.transform(this.user.updated_at, CONSTANT.FORMAT_DATE) +
+      '\n'
+    );
+  }
 }

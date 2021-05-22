@@ -3,6 +3,7 @@ import { Job } from './../../models/job';
 import { GeolocationService } from './../../services/geolocation.service';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { CONSTANT } from '../constants/constant';
 
 @Component({
   selector: 'app-jobs',
@@ -67,13 +68,13 @@ export class JobsComponent implements OnInit {
       element.assigned_to +
       '\n' +
       'date: ' +
-      this.datePipe.transform(element.date, 'MMM d, y, h:mm:ss a') +
+      this.datePipe.transform(element.date, CONSTANT.FORMAT_DATE) +
       '\n' +
       'created: ' +
-      this.datePipe.transform(element.created_at, 'MMM d, y, h:mm:ss a') +
+      this.datePipe.transform(element.created_at, CONSTANT.FORMAT_DATE) +
       '\n' +
       'updated: ' +
-      this.datePipe.transform(element.updated_at, 'MMM d, y, h:mm:ss a') +
+      this.datePipe.transform(element.updated_at, CONSTANT.FORMAT_DATE) +
       '\n' +
       'description: ' +
       element.description +

@@ -5,8 +5,9 @@
             <label>Test Rootstack Geolocation Web</label>
         </div>
         <div class="navbar-item header-item-user" *ngIf="user">
-            <label>User: {{user.name}}</label>
+            <a (click)="profile()">User: {{user.name}}</a>
             <a (click)="logout()">Salida segura</a>
         </div>
     </div>
   </nav>
+  <p-toast></p-toast>

@@ -3,6 +3,7 @@ import { User } from './../../models/user';
 import { GeolocationService } from './../../services/geolocation.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CONSTANT } from '../constants/constant';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     if (this.authService.isLoggedOut()) {
       console.log('the session has expired or ended');
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl(CONSTANT.LOGIN);
       return;
     }
 

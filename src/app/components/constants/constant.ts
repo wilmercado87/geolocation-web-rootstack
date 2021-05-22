@@ -9,5 +9,6 @@ export const CONSTANT = {
     EXPIRES_IN:'expires_in',
     SECONDS: 'second',
     FORMAT_DATE: 'MMM d, y, h:mm:ss a',
-    MSG_UNAUTHORIZED_USER : 'Unauthorized user'
+    MSG_UNAUTHORIZED_USER : 'Unauthorized user',
+    MSG_AUTHORIZED_USER: 'Welcome authorized user'
 }

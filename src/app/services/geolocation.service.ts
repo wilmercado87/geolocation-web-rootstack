@@ -17,19 +17,6 @@ export class GeolocationService {
 
   constructor(private http: HttpClient) {}
 
-  getPosition(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (resp) => {
-          resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
-        },
-        (err) => {
-          reject(err);
-        }
-      );
-    });
-  }
-
   getUser() : Observable<User>{
     return this.http.get<User>(CONSTANT.API_URL + CONSTANT.AUTH_ME).pipe(
       tap((_) => console.log('get User:')),
